@@ -23,8 +23,8 @@ This is just standard p tag stuff
 Brendon said
 >If you are not first you are last
 
-:sparkles
-:rocket
+:sparkles:
+:rocket:
 
 ##lets create a task list
 to do list
