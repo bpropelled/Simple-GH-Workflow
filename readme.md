@@ -28,8 +28,8 @@ Brendon said
 
 ##lets create a task list
 to do list
--[] get shit done
--[x] take over the world
+- [] get shit done
+- [x] take over the world
 
 ##Let's add some code
 ```htnl
