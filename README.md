@@ -28,3 +28,9 @@ git commit -m "make a note about the commit"
 ```html
 git push origin master
 ```
+
+
+# Tip, stop asking me for creds with every push
+```html
+$ git config --global credential.helper wincred
+```
