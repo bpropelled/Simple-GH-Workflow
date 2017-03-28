@@ -32,9 +32,10 @@ Save it and quit (type Ctrl+o Ctrl+x if you're in nano, :x if you're in vim) and
 Work in bits
 When dealing with git, it's best to work in small bits. Rule of thumb: if you can't summarise it in a sentence, you've gone too long without committing.
 
-This section is your typical work cycle:
+## This section is your typical work cycle:
 
 Work on your project.
+```cmd
 Check which files you've changed:
 git status
 Check what the actual changes were:
@@ -43,26 +44,28 @@ Add any files/folders mentioned in step 2 (or new ones):
 git add file1 newfile2 newfolder3
 Commit your work:
 git commit
+```
 Enter and save your commit message. If you want to back out, just quit the editor.
 Repeat as much as you like. Just remember to always end with a commit.
 
-Admire your work
+### Admire your work
 To see what you've done so far, type:
-
+```cmd
 git log
 To just see the last few commits you've made:
 
 git log -n3
 Replace 3 with whatever you feel like.
-
-For a complete overview, type:
-
+```
+### For a complete overview, type:
+```cmd
 git log --stat --summary
 Browse at your leisure.
+```
 
-View changes
+### View changes
 To view changes you haven't committed yet:
-
+```cmd
 git diff
 If you want changes between versions of your project, first you'll need to know the commit ID for the changes:
 
@@ -71,19 +74,20 @@ git log --pretty=oneline
 c6e7f6e685edbb414c676df259aab989b617b018 Make git ignore logs directory.
 8fefbce334d30466e3bb8f24d11202a8f535301c Initial commit.
 The 40 characters at the front of each line is the commit ID. You'll also see them when you git commit. You can use it to show differences between commits.
+```
 
-To view the changes between the 1st and 2nd commits, type:
-
+### To view the changes between the 1st and 2nd commits, type:
+```cmd
 git diff 8fef..c6e7
 Note how you didn't have to type the whole thing, just the first few unique characters are enough.
-
-To view the last changes you made:
-
+```
+### To view the last changes you made:
+```cmd
 git diff HEAD^..HEAD
-
-How to fix mistakes
+```
+### How to fix mistakes
 Haven't committed yet, but don't want to save the changes? You can throw them away:
-
+```cmd
 git reset --hard
 You can also do it for individual files, but it's a bit different:
 
@@ -102,16 +106,17 @@ Then write over the last commit:
 git commit
 Don't make a habit of overwriting/changing history if it's a public repo you're working with, though.
 
+```
 
-For the not so lazy
+## For the not so lazy
 Just some extra reading here. Skip it if you're lazy.
 
-Writing good commit messages
+### Writing good commit messages
 The author of Pro Git (an excellent online book) gives this advice for commit messages:
 
 Getting in the habit of creating quality commit messages makes using and collaborating with Git a lot easier. As a general rule, your messages should start with a single line that's no more than about 50 characters and that describes the changeset concisely, followed by a blank line, followed by a more detailed explanation. The Git project requires that the more detailed explanation include your motivation for the change and contrast its implementation with previous behavior — this is a good guideline to follow. It's also a good idea to use the imperative present tense in these messages. In other words, use commands. Instead of "I added tests for" or "Adding tests for," use "Add tests for." Here is a template originally written by Tim Pope at tpope.net:
 
-Short (50 chars or less) summary of changes
+#### Short (50 chars or less) summary of changes
 
 More detailed explanatory text, if necessary.  Wrap it to about 72
 characters or so.  In some contexts, the first line is treated as the
@@ -128,9 +133,9 @@ Further paragraphs come after blank lines.
    single space, with blank lines in between, but conventions vary here
 If all your commit messages look like this, things will be a lot easier for you and the developers you work with. The Git project has well-formatted commit messages — I encourage you to run git log --no-merges there to see what a nicely formatted project-commit history looks like.
 
-Ignoring files
+## Ignoring files
 When you check your project status, sometimes you'll get something like this:
-
+```cmd
 git status
 # On branch master
 # Untracked files:
@@ -146,10 +151,11 @@ And add the files you want ignored:
 
 bleh.txt
 *~
+```
 The first line ignores bleh.txt the second line ignores all files and directories ending with a tilde (~), i.e. backup files.
 
 You can check if you got it right:
-
+```cmd
 git status
 # On branch master
 # Changed but not updated:
@@ -163,15 +169,15 @@ Don't forget to commit your changes to .gitignore!
 git add .gitignore
 git commit
 With something like this for your commit message:
-
+```
 Make git ignore bleh.txt and backup files.
 Use .gitignore to keep your messages clean, and stop git from bugging you about stuff you don't care about. It's a good idea to ignore things like executable binaries, object files, etc. Pretty much anything that can be regenerated from source.
 
-Branching and merging
+### Branching and merging
 A branch is a separate line of development. If you're going to make a bunch of changes related to a single feature, it might be a good idea to make a "topic branch": a branch related to a topic/feature.
 
-To make a new branch:
-
+#### To make a new branch:
+```cmd
 git branch feature_x
 To view the current branches:
 
@@ -209,29 +215,14 @@ Now when you see the branches, you'll only see the master branch:
 git branch
 * master
 You can make as many branches as you need at once.
-
-Tags
+```
+### Tags
 If you hit a new version of your project, it may be a good idea to mark it with a tag. Tags can be used to easily refer to older commits.
 
 To tag the current version of your project as "v1.4.2", for example:
-
+```cmd
 git tag v1.4.2
 You can use these tags in places where those 40-character IDs appear.
+```
 
-What now?
-git can help with working with other people too. Of course, then you do have to learn about distributed version control. Until then, just enjoy this page.
-
-But if you want to learn:
-
-Pro Git online book
-gittutorial manual page online
-Everyday git with 20 commands or so
-The official git web site
-Main git selling points (ripped off the main site):
-
-Distributed development, i.e. working with other people.
-Strong support for non-linear development, i.e. working with other people at the same time!
-Efficient handling of large projects, i.e. fast!
-Cryptographic authentication of history, for the paranoid.
-Scriptable toolkit design; you can script pretty much any git task.
-If something doesn't seem right or is confusing, contact me at my blog. --tunginobi 07:42, 5 August 2009 (IST)
+Source --tunginobi 07:42, 5 August 2009 (IST)
